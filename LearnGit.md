@@ -1,4 +1,4 @@
-Learn Git
+# Learn Git
 
 Git儲存的位置
 
@@ -12,6 +12,14 @@ Git儲存的位置可以區分為本地(Local)的儲存位置以及遠端(Remote
 C:\>git --version
 git version 2.26.2.windows.1
 ```
+
+//將目錄建立成為git資料夾
+
+```
+git init
+```
+
+
 
 
 
