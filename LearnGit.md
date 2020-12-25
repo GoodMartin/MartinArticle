@@ -19,6 +19,30 @@ git version 2.26.2.windows.1
 git init
 ```
 
+//想要將檔案commit 進去repository
+
+```
+git commit -m "memo for this commit"
+```
+
+//如果要繼續修改某一個檔案
+
+```
+git add filename
+```
+
+//修改完之後，如果要再把剛剛改好的東西寫入respository，可以再利用git commit -m "memo here"
+
+```
+git commit -m "memo here"
+```
+
+//但是如果覺得太麻煩，就可以利用下面的指令，同時做到 add and  message
+
+```
+git commit -a -m "memo here"
+```
+
 
 
 
