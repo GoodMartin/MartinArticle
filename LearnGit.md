@@ -48,7 +48,13 @@ git commit -a -m "comments here"
 
 可以利用 git log --oneline --author="GoodMartin"查詢該作者的所有commit紀錄，也可以用git log --oneline --grep="comments"來查詢commit內容有"comments"內容的所有紀錄
 
+git log也可以用來查詢某一個時間區間的commit內容
 
+下面舉個例子:查詢2017-01之後，每天凌晨1點到2點的所有commit
+
+```
+$git log --oneline --since="9am" --until="12am" --after="2017-01"
+```
 
 # Git儲存的位置
 
