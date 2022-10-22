@@ -36,6 +36,14 @@ $git add .
 
 如果只是把檔案放進暫存區其實是不夠的，要讓暫存區的檔案永久的保存下來，還要做commit，"git commit"
 
+# git add + commit
+
+不一定要先git add 才能git commit分兩段式，也可以透過參數把git add 跟git commit一行指令做完。
+
+```
+git commit -a -m "comments here"
+```
+
 # Git儲存的位置
 
 Local and Remote
