@@ -1,4 +1,8 @@
 # Learn Git
+
+學習歷程:
+@2022/10/23 重新看一次，今天凌晨看到p.58
+
 # Git 作者
 
 Git 作者Linux Torvalds，只花了十天就寫出來了
