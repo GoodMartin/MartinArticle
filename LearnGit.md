@@ -44,6 +44,12 @@ $git add .
 git commit -a -m "comments here"
 ```
 
+# git log
+
+可以利用 git log --oneline --author="GoodMartin"查詢該作者的所有commit紀錄，也可以用git log --oneline --grep="comments"來查詢commit內容有"comments"內容的所有紀錄
+
+
+
 # Git儲存的位置
 
 Local and Remote
