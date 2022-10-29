@@ -1,0 +1,139 @@
+<div class="flex fontSetting">
+  <div class="item">
+    <div class="PanelContainer">
+      <div class="PanelHeader">設備一</div>
+      <div class="PanelAlarm">警報</div>
+      <div class="PanelKPIContainer">
+        <div class="PanelKPIItem">
+          <div class="PanelKPIName">稼動率</div>
+          <div class="PanelKPIUnit">%</div>
+          <div class="PanelKPIValue">90</div>
+        </div>
+       <div class="PanelKPIItem">
+          <div class="PanelKPIName">良率</div>
+          <div class="PanelKPIUnit">%</div>
+          <div class="PanelKPIValue">90</div>
+        </div>
+        <div class="PanelKPIItem">
+          <div class="PanelKPIName">達成率</div>
+          <div class="PanelKPIUnit">%</div>
+          <div class="PanelKPIValue">100</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+  <div class="item">6</div>
+  <div class="item">7</div>
+  <div class="item">8</div>
+  <div class="item">9</div>
+  <div class="item">10</div>
+<!--  可打開以下註解增加數量  -->
+<!--   <div class="item flex-2">2</div>
+  <div class="item">3</div> -->
+</div>
+
+.flex {
+  display: flex;
+  height: 100%;
+  padding: 50px;
+  background-color: #61a0f8;
+  // 修改以下值試試看 flex-start | flex-end | center | space-between | space-around;
+  flex-direction:row;
+  justify-content: flex-start;
+  flex-wrap:wrap;
+  
+  // 修改以下值試試看 flex-start | flex-end | center | baseline | stretch;
+  align-items: center;
+}
+
+.item {
+  width: 400px;
+  height: 230px;
+  border: 1px solid #ccccdc12;
+  background-color: #f08bc3;
+  margin: 43px;
+  display: flex;
+  color: white;
+  font-size: 2rem;
+}
+
+.PanelContainer
+{
+  display:flex;
+  flex-direction:column;
+  background-color: #1D1D1D;
+  width:100%
+}
+
+.PanelHeader
+{
+  background-color: #2D2D2D;
+  display:flex;
+	flex-wrap: nowrap;
+  color:white;
+  justify-content: center;
+  font-size:1em;
+  height:40px;
+  padding:3px;
+}
+
+.PanelAlarm
+{
+  display:flex;
+  justify-content: center;
+  background-color: #875623;
+  flex-grow: 0;
+  color:white;
+  font-size:1em;
+  margin:
+}
+
+.PanelKPIContainer
+{
+  display:flex;
+  flex-direction:row;
+  background-color: #3D3D3D;
+  justify-content:space-between;
+  flex-grow:1;
+}
+
+.PanelKPIItem
+{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  background-color: #4D4D4D;
+  width:100px;
+  margin:5px;
+  
+}
+.PanelKPIName
+{
+  display:flex;
+  background-color: #5D5D5D;
+  justify-content: center;
+  
+}
+.PanelKPIUnit
+{
+  display:flex;
+  justify-content: center;
+  background-color: #6D6D6D;
+  align-items:center;
+}
+.PanelKPIValue
+{
+  display:flex;
+  justify-content: center;
+  background-color: #7D7D7D;
+  align-items:center;
+}
+
+.fontSetting
+{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Serialization demo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href="node_modules/gridstack/dist/gridstack.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="../node_modules/gridstack/dist/gridstack-extra.min.css"/>
+  <script src="node_modules/gridstack/dist/gridstack-all.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/hierarchy.js"></script>
+
+
+ 
+
+  <style type="text/css">
+  .grid-stack { background: #121212; } 
+ 
+  .grid-stack-item-content { background-color: #1D1D1D; }
+ 
+  .grid-container {
+    padding: 15px;
+    border: 1px solid white;
+    width: 1900;
+	  height:1060;
+  }
+
+  .grid-stack > .grid-stack-item.grid-stack-sub-grid > .grid-stack-item-content {
+    background: rgba(218, 218, 19, 0.1);
+    inset: 0 2px;
+  }
+
+  .grid-stack .grid-stack-placeholder > .placeholder-content {
+    background-color: rgba(19, 4, 116, 0.637);
+  }
+
+  .ui-draggable-dragging > .grid-stack-item-content,
+  .ui-resizable-resizing > .grid-stack-item-content {
+    box-shadow: 1px 4px 6px rgba(107, 107, 107, 0.795);
+    opacity: 0.8;
+  }
+
+	body {
+		margin:8px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	}
+	
+	.content-header{
+			background-color: #242424;
+			text-align: center;
+  }
+	
+	#chartdiv {
+		width: 100%;
+		height: 100%;
+	}
+	
+	.ChartDefaultSize {
+		width: 100%;
+		height: 100%;
+	}
+	
+
+	
+  @media all and (max-width: 769px) {
+    .grid-stack > .grid-stack-item {
+      min-width: 100%;
+      min-height: 100px;
+    }
+    
+  }
+	
+   </style>
+   
+</head>
+<body>
+<div class="grid-stack grid-container"></div>
+
+<br/>
+
+<script type="text/javascript">
+    var items = [
+      {w: 8,h:4,x:0 ,y:0 ,content: '<DIV>ABC</DIV>'}, // will default to location (0,0) and 1x1
+      {w: 8,h:4,x:8 ,y:0 ,content: '<DIV>ABC</DIV>'}, 
+      {w: 8,h:4,x:17 ,y:0 ,content: '<DIV>ABC</DIV>'},
+      {w: 6,h:4,x:0 ,y:1 ,content: '<DIV>ABC</DIV>'}, 
+      {w: 6,h:4,x:6 ,y:1 ,content: '<DIV>ABC</DIV>'}, 
+      {w: 6,h:4,x:12 ,y:1 ,content: '<DIV>ABC</DIV>'},
+      {w: 6,h:4,x:18 ,y:1 ,content: '<DIV>ABC</DIV>'},
+      {w: 18,h:4,x:0 ,y:2 ,content: '<DIV>ABC</DIV>'},
+      {w: 6,h:4,x:18 ,y:2 ,content: '<DIV>ABC</DIV>'} 	  
+    ];
+
+
+    var grid = GridStack.init({
+        column:24,
+		    minRow:1,
+        animate: false,
+		    dragIn: '.newWidget',  // class that can be dragged from outside 目前用不到，先記下來
+		    draggable :{handle: '.panel-title', appendTo: 'body'},
+        oneColumnSize :768,
+        disableOneColumnMode: false
+      });
+
+    
+
+    grid.load(items);
+	  GridStack.init();
+	  
+	  //grid.addWidget({w: 4,h: 4,x: 1,y: 1,content: '<DIV class="content-header">1,0</DIV>'});
+	  //grid.addWidget({w: 4,h: 4,x: 2,y: 1,content: '<DIV class="content-header">1,0</DIV>'});
+	  
+	let options = {
+		alwaysShowResizeHandle: 'mobile' // which defaults to /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+	};
+	GridStack.init(options);
+	
+	
+  </script>
+</body>
+
+</html>

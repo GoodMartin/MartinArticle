@@ -31,7 +31,9 @@ h1 {
   color: #2c3e50;
   text-align: center;
   background-color: #18bc9c;
+  overflow-y: hidden;
 }
+
 
 .grid-stack-item-removing {
   opacity: 0.5;
@@ -73,3 +75,4 @@ h1 {
   position: absolute;
   inset: 0; /* TODO change top: if you have content in nested grid */
 }
+
