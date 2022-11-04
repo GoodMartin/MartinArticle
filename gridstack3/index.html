@@ -17,10 +17,8 @@
     <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/hierarchy.js"></script>
-    <script
-    src="https://code.jquery.com/jquery-3.6.1.js"
-    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 
     <style type="text/css">
         .grid-stack {
@@ -54,33 +52,46 @@
             column: 24, //設定總共有幾欄，gridstack預設12 columns，要改成24 columns，gridstack.css要修改，詳細方法可以看官網裡面有說明，也有工具可以幫助產生css
             animate: false,// 拖曳過程，gridstack item移動是否有動畫
             cellHeight: '4.166666666666666vh', //"auto" see other possible values (best to do in here) 這裡是設定widget的高度的一個單位值，如果新增widget時設定h=4，那實際高度就是4 x cleeHeight(100)=400
-            cellHeightThrottle: 100, 
+            cellHeightThrottle: 100,
             //dragIn: '.newWidget', class that can be dragged from outside 目前用不到，先記下來
             draggable: { handle: '.panel-title', appendTo: 'body' },
             disableOneColumnMode: false
         });
 
-        function newWidget(gridObj){
-            var newWidget_w,newWidget_h,newWidget_x,newWidget_y;
+        function newWidget(gridObj) {
+            var newWidget_w, newWidget_h, newWidget_x, newWidget_y;
 
-            if($("#gsX").val()===null) newWidget_x=1; else newWidget_x=$("#gsX").val();
-            if($("#gsY").val()===null) newWidget_y=1; else newWidget_y=$("#gsY").val();
-            if($("#gsW").val()===null) newWidget_w=1; else newWidget_w=$("#gsW").val();
-            if($("#gsH").val()===null) newWidget_h=1; else newWidget_h=$("#gsH").val();
-            
-            
-            newWidget_content="Item w is"+ newWidget_w + "item h is "+newWidget_h ;    
+            if ($("#gsX").val() === null) newWidget_x = 1; else newWidget_x = $("#gsX").val();
+            if ($("#gsY").val() === null) newWidget_y = 1; else newWidget_y = $("#gsY").val();
+            if ($("#gsW").val() === null) newWidget_w = 1; else newWidget_w = $("#gsW").val();
+            if ($("#gsH").val() === null) newWidget_h = 1; else newWidget_h = $("#gsH").val();
+
+
+            newWidget_content = "Item w is" + newWidget_w + " item h is " + newWidget_h;
             gridObj.addWidget({
-                    w: newWidget_w,
-                    h: newWidget_h,
-                    x:newWidget_x,
-                    y:newWidget_y,
-                     content: newWidget_content });
+                w: newWidget_w,
+                h: newWidget_h,
+                x: newWidget_x,
+                y: newWidget_y,
+                content: newWidget_content
+            });
         }
 
-       
+
         //grid.addWidget({w: newWidget_w,h: newWidget_h, content: newWidget_content });
+
+
        
+
+        grid.on('dragstop', function (event, el) {
+            let x = parseInt(el.getAttribute('gs-x')) || 0;
+            // or all values...
+            let node= el.gridstackNode; // {x, y, width, height, id, ....}
+            console.log(node.x);
+            if (event.dataTransfer) {
+                console.log('gridstack dragstop: ', event.dataTransfer.getData('message'));
+            }
+        });
 
     </script>
 </body>
