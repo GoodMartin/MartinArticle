@@ -1,0 +1,79 @@
+ 
+
+.PanelContainer
+{
+  display:flex;
+  flex-direction:column;
+  background-color: #1D1D1D;
+  width:100%;
+}
+
+.PanelHeader
+{
+  background-color: #2D2D2D;
+  display:flex;
+	flex-wrap: nowrap;
+  color:white;
+  justify-content: center;
+  font-size:1em;
+  height:35px;
+  padding:3px;
+}
+
+.PanelAlarm
+{
+  display:flex;
+  justify-content: center;
+  background-color: #875623;
+  flex-grow: 0;
+  color:white;
+  font-size:1em;
+  
+}
+
+.PanelKPIContainer
+{
+  display:flex;
+  flex-direction:row;
+  background-color: #3D3D3D;
+  justify-content:space-between;
+  flex-grow:1;
+}
+
+.PanelKPIItem
+{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  background-color: #4D4D4D;
+  width:100px;
+  margin:5px;
+  
+}
+.PanelKPIName
+{
+  display:flex;
+  background-color: #5D5D5D;
+  justify-content: center;
+  
+}
+.PanelKPIUnit
+{
+  display:flex;
+  justify-content: center;
+  background-color: #6D6D6D;
+  align-items:center;
+}
+.PanelKPIValue
+{
+  display:flex;
+  justify-content: center;
+  background-color: #7D7D7D;
+  align-items:center;
+}
+
+.fontSetting
+{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
