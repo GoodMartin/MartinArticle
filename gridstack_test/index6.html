@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Serialization demo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="node_modules/gridstack/dist/gridstack-extra.min.css" />
+  <link rel="stylesheet" href="node_modules/gridstack/dist/gridstack.css" />
+  <link rel="stylesheet" href="demo.css" />
+  <link rel="stylesheet" href="martin_flex.css" />
+
+  <script src="node_modules/gridstack/dist/gridstack-all.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/hierarchy.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+  
+  <script
+  src="https://code.jquery.com/jquery-3.6.1.js"
+  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  crossorigin="anonymous"></script>
+
+
+
+  <style type="text/css">
+    
+  </style>
+
+</head>
+
+<body>
+  <div id="btnStart">開始</div>
+  <div id="btnCreate1">產生Chart</div>
+  <div id="btnCreate2">產生警報區塊</div>
+  <div id="gridstack" class="grid-stack"></div>
+  <br />
+  <script type="text/javascript">
+
+    //Input:  template Name
+    //Return: template String
+    function getStackItemContent(expr,inObj){
+        let ItemContent="";
+        console.log(expr);
+        switch(expr) {
+            case 'template1':
+                ItemContent=getTemplate1(inObj);
+                console.log("template1");
+                console.log(ItemContent);
+                return ItemContent;
+                break;
+            case 'template2':
+                ItemContent=getTemplate2(inObj);
+                console.log("template2");
+                console.log(ItemContent);
+                return ItemContent;
+                break;
+            default:
+            console.log("expr is wrong,return default! ")
+                return '';
+        }
+    }
+
+    function getTemplate2(inObj){
+        let templateContent = `
+        <div class="PanelContainer">\
+            <div class="PanelHeader">${inObj.eqpid}</div>\
+            <div class="PanelAlarm">警報</div>\
+                <div class="PanelKPIContainer">\
+                    <div class="PanelKPIItem">\
+                        <div class="PanelKPIName">${inObj.PanelKPIItem1_KPIName}</div>\
+                        <div class="PanelKPIUnit">${inObj.PanelKPIItem1_KPIUnit}</div>\
+                        <div class="PanelKPIValue">${inObj.PanelKPIItem1_KPIValue}</div>\
+                    </div>\
+                    <div class="PanelKPIItem">\
+                        <div class="PanelKPIName">${inObj.PanelKPIItem2_KPIName}</div>\
+                        <div class="PanelKPIUnit">${inObj.PanelKPIItem2_KPIUnit}</div>\
+                        <div class="PanelKPIValue">${inObj.PanelKPIItem2_KPIValue}</div>\
+                    </div>\
+                    <div class="PanelKPIItem">\
+                        <div class="PanelKPIName">${inObj.PanelKPIItem3_KPIName}</div>\
+                        <div class="PanelKPIUnit">${inObj.PanelKPIItem3_KPIUnit}</div>\
+                        <div class="PanelKPIValue">${inObj.PanelKPIItem3_KPIValue}</div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>`
+        return templateContent;
+    }
+
+    function getTemplate1(inObj){
+
+        let templateContent = `
+        <DIV class="panel-container">\
+            <DIV class="panel-title">${inObj.panel_title}</DIV>
+            <DIV class="panel-content">
+                <DIV class="ChartDefaultSize" id="${inObj.panel_id}"></DIV>
+            </DIV>
+        </DIV>
+        `
+        console.log(templateContent);
+        return templateContent;
+    }
+
+    function Create1(){
+        let templateData={
+            panel_title:"0,0",
+            panel_id:"chartdiv1"
+        }
+
+        var StackItemContentTemplate_1 ="";
+        StackItemContentTemplate_1=getStackItemContent("template1",templateData);
+        grid.addWidget({w: 8,h: 4,x: 0,y: 1,content: StackItemContentTemplate_1});
+    }
+
+    function Create2(){
+        let templateData2={
+            eqpid:"EQP1",
+            PanelKPIItem1_KPIName:"稼動率",
+            PanelKPIItem1_KPIUnit:"%",
+            PanelKPIItem1_KPIValue:"99",
+            PanelKPIItem2_KPIName:"良率",
+            PanelKPIItem2_KPIUnit:"%",
+            PanelKPIItem2_KPIValue:"78",
+            PanelKPIItem3_KPIName:"達成率",
+            PanelKPIItem3_KPIUnit:"%",
+            PanelKPIItem3_KPIValue:"56"
+
+        }
+
+
+        var StackItemContentTemplate_2 ="";
+        StackItemContentTemplate_2=getStackItemContent("template2",templateData2);    
+        grid.addWidget({w: 6,h: 4,x: 8,y: 1,content: StackItemContentTemplate_2});
+    }
+    
+
+    
+
+
+    var grid = GridStack.init({
+      column: 24,
+      margin:8,//設定item跟item方塊間的距離，預設是10px
+      animate: false,
+      cellHeight: '88px', //"auto" see other possible values (best to do in here)
+      cellHeightThrottle: 100,
+      //dragIn: '.newWidget', class that can be dragged from outside 目前用不到，先記下來
+      draggable: { handle: '.panel-title', appendTo: 'body' },
+      disableOneColumnMode: false
+    });
+
+
+    //var items = [
+    //  { w: 8, h: 4, x: 0, y: 0, content: StackItemContentTemplate_1},
+    //  { w: 8, h: 4, x: 9, y: 0, content: StackItemContentTemplate_2}
+    //];
+    
+    //grid.load(items);
+    //GridStack.init();
+
+
+    let options = {
+      alwaysShowResizeHandle: 'mobile' // which defaults to /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    };
+
+    GridStack.init(options);
+
+    //先隱藏掉gridstack
+    document.getElementById("gridstack").style.visibility = 'hidden';
+    
+    var el=document.getElementById("btnStart")
+      .addEventListener("click",function ShowGridStack(){
+        var gs=document.getElementById("gridstack").style.visibility = 'visible';
+        console.log("test");
+    });
+
+    
+    var el2=document.getElementById("btnCreate1")
+      .addEventListener("click",function (){
+        Create1();
+        AddChart1("chartdiv1");
+    });
+
+    var el3=document.getElementById("btnCreate2")
+      .addEventListener("click",function (){
+        Create2();
+    });
+
+   
+
+
+
+
+  </script>
+  <script src="AddCharts_chartdiv1_function.js"></script>
+</body>
+
+</html>

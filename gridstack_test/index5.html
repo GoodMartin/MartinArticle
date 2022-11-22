@@ -31,7 +31,7 @@
  
   .grid-container {
     padding: 15px;
-    border: 1px solid white;
+    border: 1px solid #121212;
     width: 1900;
 	  height:1080;
   }
@@ -133,9 +133,7 @@
 </head>
 <body>
 <div class="grid-stack grid-container"></div>
-
 <br/>
-
 
 <script type="text/javascript">
     var items = [
@@ -154,6 +152,7 @@
     var grid = GridStack.init({
         column:24,
         animate: false,
+        margin:2,
         cellHeight: 3, //"auto" see other possible values (best to do in here)
         cellHeightThrottle: 10,
 		      //dragIn: '.newWidget', class that can be dragged from outside 目前用不到，先記下來
@@ -166,12 +165,12 @@
     grid.load(items);
 	  GridStack.init();
 	  
-	  grid.addWidget({w: 4,h: 2,x: 0,y: 3,content: '<DIV class="panel-container"><DIV class="panel-title">LINE 1</DIV><DIV class="panel-content"><div class="ChartDefaultSize" id="chartdiv10"></div></DIV></DIV>'});
-    grid.addWidget({w: 4,h: 2,x: 4,y: 3,content: '<DIV class="panel-container"><DIV class="panel-title">LINE 2</DIV><DIV class="panel-content"><div class="ChartDefaultSize" id="chartdiv11"></div></DIV></DIV>'});
-    grid.addWidget({w: 4,h: 2,x: 8,y: 3,content: '<DIV class="panel-container"><DIV class="panel-title">LINE 3</DIV><DIV class="panel-content"><div class="ChartDefaultSize" id="chartdiv12"></div></DIV></DIV>'});
-    grid.addWidget({w: 4,h: 2,x: 12,y: 3,content: '<DIV class="panel-container"><DIV class="panel-title">LINE 4</DIV><DIV class="panel-content"><div class="ChartDefaultSize" id="chartdiv13"></div></DIV></DIV>'});
-    grid.addWidget({w: 4,h: 2,x: 16,y: 3,content: '<DIV class="panel-container"><DIV class="panel-title">LINE 5</DIV><DIV class="panel-content"><div class="ChartDefaultSize" id="chartdiv14"></div></DIV></DIV>'});
-    grid.addWidget({w: 4,h: 2,x: 20,y: 3,content: '<DIV class="panel-container"><DIV class="panel-title">LINE 6</DIV><DIV class="panel-content"><div class="ChartDefaultSize" id="chartdiv16"></div></DIV></DIV>'});
+	  grid.addWidget({w: 4,h: 2,x: 0,y: 0,content: '<DIV class="panel-container"><DIV class="panel-title">LINE 1</DIV><DIV class="panel-content"><div class="ChartDefaultSize" id="chartdiv10"></div></DIV></DIV>'});
+    grid.addWidget({w: 4,h: 2,x: 4,y: 0,content: '<DIV class="panel-container"><DIV class="panel-title">LINE 2</DIV><DIV class="panel-content"><div class="ChartDefaultSize" id="chartdiv11"></div></DIV></DIV>'});
+    grid.addWidget({w: 4,h: 2,x: 8,y: 0,content: '<DIV class="panel-container"><DIV class="panel-title">LINE 3</DIV><DIV class="panel-content"><div class="ChartDefaultSize" id="chartdiv12"></div></DIV></DIV>'});
+    grid.addWidget({w: 4,h: 2,x: 12,y: 0,content: '<DIV class="panel-container"><DIV class="panel-title">LINE 4</DIV><DIV class="panel-content"><div class="ChartDefaultSize" id="chartdiv13"></div></DIV></DIV>'});
+    grid.addWidget({w: 4,h: 2,x: 16,y: 0,content: '<DIV class="panel-container"><DIV class="panel-title">LINE 5</DIV><DIV class="panel-content"><div class="ChartDefaultSize" id="chartdiv14"></div></DIV></DIV>'});
+    grid.addWidget({w: 4,h: 2,x: 20,y: 0,content: '<DIV class="panel-container"><DIV class="panel-title">LINE 6</DIV><DIV class="panel-content"><div class="ChartDefaultSize" id="chartdiv16"></div></DIV></DIV>'});
 	  //grid.addWidget({w: 4,h: 4,x: 2,y: 1,content: '<DIV class="content-header">1,0</DIV>'});
 	  
 	let options = {

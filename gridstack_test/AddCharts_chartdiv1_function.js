@@ -1,4 +1,6 @@
 //=開始填入chart=====================================================================================================================================
+function AddChart1(TargetParent){
+
 
 
 
@@ -14,7 +16,7 @@
 
     // Create root element
     // https://www.amcharts.com/docs/v5/getting-started/#Root_element
-    var root = am5.Root.new("chartdiv1");
+    var root = am5.Root.new(TargetParent);
 
     // Set themes
     // https://www.amcharts.com/docs/v5/concepts/themes/
@@ -191,5 +193,5 @@
       myTheme
     ]);
 
-
+}
     

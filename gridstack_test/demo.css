@@ -76,3 +76,90 @@ h1 {
   inset: 0; /* TODO change top: if you have content in nested grid */
 }
 
+.grid-stack {
+  background: #121212;
+}
+
+.grid-stack-item-content {
+  background-color: #1D1D1D;
+}
+
+.grid-container {
+  padding: 15px;
+  border: 1px solid white;
+  width: 1900;
+  height: 1060;
+}
+
+.grid-stack>.grid-stack-item.grid-stack-sub-grid>.grid-stack-item-content {
+  background: rgba(218, 218, 19, 0.1);
+  inset: 0 2px;
+}
+
+.grid-stack .grid-stack-placeholder>.placeholder-content {
+  background-color: rgba(19, 4, 116, 0.637);
+}
+
+.ui-draggable-dragging>.grid-stack-item-content,
+.ui-resizable-resizing>.grid-stack-item-content {
+  box-shadow: 1px 4px 6px rgba(107, 107, 107, 0.795);
+  opacity: 0.8;
+}
+
+body {
+  margin: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.ChartDefaultSize {
+  width: 100%;
+  height: 100%;
+}
+
+.panel-container {
+  background-color: #181b1f;
+  border: 1px solid #ccccdc12;
+  border-radius: 3px;
+  box-shadow: none;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.panel-title {
+  background-color: #181b1f;
+  color: rgb(204, 204, 220);
+  align-items: center;
+  border: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  font-weight: 500;
+  height: 32px;
+  justify-content: center;
+  line-height: 32px;
+  position: relative;
+  width: 100%;
+}
+
+.panel-title:hover {
+  background-color: #242424;
+}
+
+
+.panel-content {
+  contain: strict;
+  flex-grow: 1;
+  height: calc(100% - 33px);
+  padding: 8px;
+  width: 100%;
+}
+
+@media all and (max-width: 768px) {
+  .grid-stack>.grid-stack-item {
+    min-width: 100%;
+  }
+
+}
