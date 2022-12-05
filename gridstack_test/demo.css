@@ -153,7 +153,7 @@ body {
   contain: strict;
   flex-grow: 1;
   height: calc(100% - 33px);
-  padding: 8px;
+  padding: 8px;  
   width: 100%;
 }
 

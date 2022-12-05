@@ -1,6 +1,4 @@
- 
-
-.PanelContainer
+ .PanelContainer
 {
   display:flex;
   flex-direction:column;
